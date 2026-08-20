@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus OS</title>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .header { padding: 20px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .app {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .app:hover { background: #555; }
+        .app h2 { margin: 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 id="clock">00:00</h1>
+    </div>
+    
+    <div class="grid">
+        <div class="app" onclick="window.location.href='os.html'">
+            <h2>🎮 Games</h2>
+        </div>
+        <div class="app" onclick="window.location.href='browser.html'">
+            <h2>🌐 Browser</h2>
+        </div>
+        <div class="app" onclick="window.location.href='settings.html'">
+            <h2>⚙️ Settings</h2>
+        </div>
+    </div>
+
+    <script>
+        // Live Clock
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }, 1000);
+    </script>
+</body>
+</html>
